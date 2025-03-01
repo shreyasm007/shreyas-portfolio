@@ -1,0 +1,51 @@
+/* index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #050816;
+  --secondary: #aaa6c3;
+  --tertiary: #151030;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-purple-600 text-white rounded-full font-semibold
+    hover:bg-purple-700 transition-colors duration-300 transform hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 border-2 border-purple-600 text-white rounded-full font-semibold
+    hover:bg-purple-600 transition-colors duration-300 transform hover:scale-105;
+  }
+
+  .section-heading {
+    @apply text-4xl sm:text-5xl font-black text-center mb-16 text-white;
+  }
+}
+
+.dark {
+  --primary: #050816;
+  --secondary: #aaa6c3;
+  --tertiary: #151030;
+}
+
+/* Light mode colors */
+:root:not(.dark) {
+  --primary: #ffffff;
+  --secondary: #4a5568;
+  --tertiary: #e2e8f0;
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
