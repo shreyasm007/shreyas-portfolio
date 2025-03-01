@@ -34,8 +34,8 @@ Make sure you have the following installed:
 
 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/portfolio-website.git
-cd portfolio-website
+git clone https://github.com/shreyasm007/shreyas-portfolio.git
+cd shreyas-portfolio
 ```
 
 2. Install dependencies
