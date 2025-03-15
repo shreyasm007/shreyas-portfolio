@@ -1,4 +1,4 @@
-//About.jsx
+// src/components/About.jsx
 import { motion } from 'framer-motion';
 
 const About = () => {
@@ -20,10 +20,8 @@ const About = () => {
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <motion.div 
-            {...fadeIn}
-            className="space-y-6"
-          >
+          {/* Education Section */}
+          <motion.div {...fadeIn} className="space-y-6">
             <h3 className="text-2xl font-bold dark:text-purple-400 text-purple-600">
               Education
             </h3>
@@ -42,7 +40,7 @@ const About = () => {
                   Ligade Patil Junior College of Science, Karad
                 </h4>
                 <p className="text-gray-600 dark:text-gray-300">Higher Secondary Certificate (HSC) in Science</p>
-                <p className="text-gray-500">May 2018 - Jun 2020</p>
+                <p className="text-gray-500">Mar 2018 - Jun 2020</p>
                 <p className="text-purple-600 dark:text-purple-400">Grade: 95.23%</p>
               </div>
               <div className="dark:bg-tertiary bg-gray-100 p-6 rounded-lg">
@@ -50,28 +48,32 @@ const About = () => {
                   Mahatma Gandhi Vidyalaya, Kadegaon
                 </h4>
                 <p className="text-gray-600 dark:text-gray-300">Secondary School Certificate</p>
-                <p className="text-gray-500">June 2013 - May 2018</p>
+                <p className="text-gray-500">Jun 2013 - May 2018</p>
                 <p className="text-purple-600 dark:text-purple-400">Grade: 96.60%</p>
               </div>
             </div>
+            {/* NEW: Personal Story & Extracurricular */}
+            <div className="dark:bg-tertiary bg-gray-100 p-6 rounded-lg">
+              <p className="text-gray-700 dark:text-gray-300">
+                Born and raised in At Po-Tondoli, Kadegaon, I developed leadership and teamwork skills early as a captain of my school football team and through various activities in school. My passion for technology, combined with extracurricular excellence, drives my pursuit of innovative solutions.
+              </p>
+            </div>
           </motion.div>
 
-          <motion.div 
-            {...fadeIn}
-            className="space-y-6"
-          >
+          {/* Professional Overview Section */}
+          <motion.div {...fadeIn} className="space-y-6">
             <h3 className="text-2xl font-bold dark:text-purple-400 text-purple-600">
               Professional Overview
             </h3>
             <div className="dark:bg-tertiary bg-gray-100 p-6 rounded-lg space-y-4">
               <p className="dark:text-gray-300 text-gray-700">
-                I am a Generative AI Engineer and Full Stack Developer with expertise in:
+                I am a Generative AI Engineer and Full Stack Developer specializing in building advanced AI-driven applications and full-stack solutions. I leverage technologies such as Microsoft Copilot Studio, Hugging Face, and LangChain while maintaining strong problem-solving, leadership, and communication skills.
               </p>
               <ul className="list-disc list-inside space-y-2 dark:text-gray-300 text-gray-700">
                 <li>Developing AI-driven solutions and Large Language Models (LLMs)</li>
-                <li>Building full-stack applications using MERN stack</li>
-                <li>Creating innovative solutions using emerging technologies</li>
-                <li>Problem-solving through creative approaches</li>
+                <li>Building full-stack applications using the MERN stack and other modern frameworks</li>
+                <li>Delivering innovative projects while excelling in teamwork and leadership</li>
+                <li>Consistent focus on continuous learning and professional growth</li>
               </ul>
               <div className="pt-4">
                 <h4 className="font-semibold dark:text-white text-gray-800 mb-2">Languages</h4>
