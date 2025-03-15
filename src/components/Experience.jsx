@@ -1,16 +1,19 @@
-//Experience.jsx
+// src/components/Experience.jsx
 import { motion } from 'framer-motion';
 
 const Experience = () => {
   const experiences = [
     {
-      title: "Associate Engineer",
+      title: "Associate Engineer - Generative AI",
       company: "NCS Group",
       duration: "Aug 2024 - Present",
       points: [
+        "Developing an IT Assist chatbot using Microsoft Copilot Studio and Power Automate, integrated with ServiceNow API.",
+        "Implementing prompt engineering, retrieval-augmented generation (RAG), and vector databases to enhance response accuracy.",
+        "Using Hugging Face models and deploying AI-driven solutions with Ollama.",
+        "Optimize NLP workflows (tokenization, embeddings, stemming, and lemmatization).",
         "Focused on Generative AI, data scraping, and leveraging Large Language Models (LLMs)",
         "Actively contributed to chatbot development and automation tools",
-        "Collaborated with cross-functional teams to develop AI-driven solutions",
         "Gained exposure to end-to-end project cycles"
       ]
     },
@@ -19,12 +22,25 @@ const Experience = () => {
       company: "Emerson Innovation Center, Pune",
       duration: "Jan 2024 - Aug 2024",
       points: [
-        "Developed a License Monitoring Tool using the MERN stack",
-        "Collaborated on frontend tasks using Angular and backend development with C# and XAML",
+        "Engineered a full-stack License Monitoring Tool using the MERN stack for real-time tracking of software licenses.",
+        "Enhanced data accuracy, reducing manual oversight by 30%, and gained valuable mentorship from senior developers.",
+        "Developed frontend components with Angular and contributed to backend development using C# and XAML.",
         "Attended cybersecurity webinars, enhancing knowledge of secure coding practices",
         "Worked closely with senior developers, gaining valuable mentorship"
       ]
+    },
+    {
+      title: "GIM & SRO Coordinator",
+      company: "Students Organization For Technical Activity (SOFTA)",
+      duration: "Jul 2021 - Apr 2022",
+      points: [
+        "Managed events such as GIM 2022 for first-year students, ensuring smooth execution and high participation.",
+        "Coordinated publicity and outreach initiatives to promote club services and events.",
+        "Led a team to organize both technical and extracurricular activities, fostering a strong community spirit.",
+        "Developed leadership, communication, and organizational skills through hands-on event management."
+      ]
     }
+    
   ];
 
   const cardVariants = {
@@ -62,13 +78,10 @@ const Experience = () => {
               variants={cardVariants}
               className="relative"
             >
-              {/* Timeline line */}
               {index !== experiences.length - 1 && (
                 <div className="absolute left-8 top-8 -bottom-8 w-0.5 bg-purple-600" />
               )}
-
               <div className="relative flex gap-6">
-                {/* Timeline dot */}
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-purple-600 shrink-0">
                   <svg
                     className="w-8 h-8 text-white"
@@ -84,7 +97,6 @@ const Experience = () => {
                     />
                   </svg>
                 </div>
-
                 <div className="flex-1">
                   <div className="dark:bg-tertiary bg-white p-6 rounded-lg shadow-lg">
                     <h3 className="text-xl font-bold dark:text-white text-gray-800">
