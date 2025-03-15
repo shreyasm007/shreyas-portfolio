@@ -1,21 +1,41 @@
-//ThemeContext.jsx
+// src/context/ThemeContext.jsx
 import { createContext, useContext, useState, useEffect } from 'react';
 
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
+  // Default to dark mode initially
   const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
-    const isDark = localStorage.getItem('darkMode') === 'true';
-    setDarkMode(isDark);
+    // Retrieve stored theme preference
+    const storedTheme = localStorage.getItem('darkMode');
+    if (storedTheme === null) {
+      // If nothing is stored, default to dark mode and add "dark" class
+      setDarkMode(true);
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('darkMode', "true");
+    } else {
+      const isDark = storedTheme === 'true';
+      setDarkMode(isDark);
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
   }, []);
 
   const toggleDarkMode = () => {
     const newMode = !darkMode;
     setDarkMode(newMode);
     localStorage.setItem('darkMode', newMode);
-    document.documentElement.classList.toggle('dark');
+    // Explicitly add or remove the class instead of toggling blindly
+    if (newMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   };
 
   return (
