@@ -120,7 +120,7 @@ const Contact = () => {
               </h3>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://www.linkedin.com/in/shreyas-mohite"
+                  href="https://www.linkedin.com/in/shreyas-mohite-750a64227/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
@@ -128,7 +128,7 @@ const Contact = () => {
                   LinkedIn
                 </a>
                 <a
-                  href="https://leetcode.com/Shreyasm007"
+                  href="https://leetcode.com/shreyasm_007"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
