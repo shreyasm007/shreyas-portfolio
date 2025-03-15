@@ -1,8 +1,17 @@
-//Projects.jsx
+// src/components/Projects.jsx
 import { motion } from 'framer-motion';
 
 const Projects = () => {
   const projects = [
+    {
+      title: "IntelliContextAI",
+      duration: "Feb 2025 - Present",
+      association: "Personal Project",
+      description: "A generative AI-powered application featuring document upload, text extraction, and a context-aware chat interface with Retrieval-Augmented Generation (RAG).",
+      impact: "Demonstrates advanced integration of AI and web technologies, providing innovative user experiences allowing users to interact with their own data.",
+      skills: ["Python", "Streamlit", "MinHashEncoder", "Groq API"],
+      link: "https://shreyasintellicontextai.streamlit.app/"
+    },
     {
       title: "Attendance Management System with Dynamic QR",
       duration: "Jul 2023 - Jun 2024",
@@ -10,7 +19,7 @@ const Projects = () => {
       description: "Created a mobile app and web application for attendance tracking, minimizing proxy entries and streamlining the process.",
       impact: "Successfully adopted by WCE Sangli, reducing errors in attendance logging.",
       skills: ["HTML", "CSS", "JavaScript", "Java", "Firebase"],
-      link: "Attendance Management System using QR Code - Google Drive"
+      link: "https://drive.google.com/drive/folders/1R0OPQyES7l2F_7qUGSVF4Uhr6n5VCgbx"
     },
     {
       title: "License Monitoring Tool",
@@ -19,14 +28,14 @@ const Projects = () => {
       description: "Developed a MERN stack application enabling management to track licenses with real-time data visualization and insights.",
       impact: "Improved data accuracy and decision-making for senior management, reducing manual processes by 30%.",
       skills: ["MongoDB", "Express.js", "React.js", "Node.js"],
-      github: "shreyasm007/proj"
+      github: "shreyasm007/LicenseMonitoringTool"
     },
     {
       title: "Information Display using Augmented Reality",
       duration: "Jun 2022 - Jan 2023",
       association: "Walchand College of Engineering",
-      description: "Developed an AR application for visualizing data on labs and rooms, using 3D AR models to enhance information accessibility.",
-      impact: "Enhanced user interaction with data within the CSE department, creating an innovative educational tool.",
+      description: "Developed an AR application for visualizing data on labs and rooms, enhancing information accessibility using 3D AR models.",
+      impact: "Enhanced user interaction with data within the CSE department.",
       skills: ["Unity", "Google ARCore", "Augmented Reality (AR)"]
     }
   ];
