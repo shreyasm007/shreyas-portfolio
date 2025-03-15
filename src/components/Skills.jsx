@@ -1,4 +1,4 @@
-//Skills.jsx
+// src/components/Skills.jsx
 import { motion } from 'framer-motion';
 
 const Skills = () => {
@@ -15,7 +15,17 @@ const Skills = () => {
     },
     {
       title: "Artificial Intelligence",
-      skills: ["Generative AI", "Large Language Models", "Natural Language Processing", "Prompt Engineering"],
+      skills: [
+        "Generative AI", 
+        "Large Language Models", 
+        "Microsoft Copilot Studio", 
+        "Hugging Face", 
+        "Natural Language Processing",
+        "Retrieval-Augmented Generation (RAG)",
+        "Ollama", 
+        "LangChain", 
+        "Prompt Engineering"
+      ],
       icon: "🤖"
     },
     {
@@ -118,6 +128,11 @@ const Skills = () => {
                 title: "Introduction to Generative AI and Prompt Engineering",
                 date: "Oct 2024",
                 id: "11372998"
+              },
+              {
+                title: "Prompt Engineering for Git",
+                date: "Oct 2024"
+                // Optionally add id or institution if available.
               },
               {
                 title: "Blockchain and its Applications",
