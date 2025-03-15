@@ -8,13 +8,12 @@ export const ThemeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
-    // Retrieve stored theme preference
     const storedTheme = localStorage.getItem('darkMode');
     if (storedTheme === null) {
-      // If nothing is stored, default to dark mode and add "dark" class
+      // No stored theme: default to dark mode and set localStorage accordingly
       setDarkMode(true);
-      document.documentElement.classList.add('dark');
       localStorage.setItem('darkMode', "true");
+      document.documentElement.classList.add('dark');
     } else {
       const isDark = storedTheme === 'true';
       setDarkMode(isDark);
@@ -30,7 +29,6 @@ export const ThemeProvider = ({ children }) => {
     const newMode = !darkMode;
     setDarkMode(newMode);
     localStorage.setItem('darkMode', newMode);
-    // Explicitly add or remove the class instead of toggling blindly
     if (newMode) {
       document.documentElement.classList.add('dark');
     } else {
