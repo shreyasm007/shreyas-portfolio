@@ -49,3 +49,7 @@ body {
   background-color: var(--primary);
   color: var(--secondary);
 }
+
+.bp-webchat {
+  z-index: 9999 !important;
+}
