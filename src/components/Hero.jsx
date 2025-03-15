@@ -60,6 +60,14 @@ const Hero = () => {
               LinkedIn
             </a>
             <a
+              href="https://drive.google.com/file/d/1QxLBL_u6-xmQHRGVHBq06ZN_C5QAgA7j/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              See my resume
+            </a>
+            <a
               href="https://leetcode.com/shreyasm_007"
               target="_blank"
               rel="noopener noreferrer"
