@@ -1,7 +1,6 @@
-//App.jsx
-import React from 'react';
+// App.jsx
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,7 +9,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
-import ThemeToggle from './components/ThemeToggle'; 
+import ThemeToggle from './components/ThemeToggle';
 import { ThemeProvider } from './context/ThemeContext';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
@@ -19,9 +18,22 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    window.addEventListener('load', () => setLoading(false));
-    return () => window.removeEventListener('load', () => setLoading(false));
+    // Define a named function for handling window load
+    const handleLoad = () => setLoading(false);
+
+    // Add load event listener
+    window.addEventListener('load', handleLoad);
+
+    // Fallback: remove spinner after 10 seconds if load event is not fired
+    const timeoutId = setTimeout(() => setLoading(false), 10000);
+
+    // Clean up event listener and timeout on unmount
+    return () => {
+      window.removeEventListener('load', handleLoad);
+      clearTimeout(timeoutId);
+    };
   }, []);
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen bg-primary">
@@ -31,10 +43,10 @@ function App() {
   }
 
   return (
-    <ThemeProvider> 
+    <ThemeProvider>
       <BrowserRouter>
         <div className="relative z-0 bg-primary">
-          <ThemeToggle /> 
+          <ThemeToggle />
           <Chatbot />
           <ParticleBackground />
           <div className="relative z-10">
