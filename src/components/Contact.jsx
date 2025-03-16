@@ -21,37 +21,48 @@ const Contact = () => {
     setLoading(true);
     setError('');
     setSuccess(false);
-
+  
     try {
       const formData = Object.fromEntries(new FormData(formRef.current));
       const validationError = validateForm(formData);
       if (validationError) throw new Error(validationError);
-
+  
+      // Sanitize input
       const cleanData = {
         name: DOMPurify.sanitize(formData.name),
         email: DOMPurify.sanitize(formData.email),
-        message: DOMPurify.sanitize(formData.message)
+        message: DOMPurify.sanitize(formData.message),
       };
-
-      // Call your backend endpoint instead of using emailjs
-      const response = await fetch('http://localhost:3001/api/send', {
+  
+      // Send email to admin
+      const resAdmin = await fetch('https://shreyas-portfolio-backend.vercel.app/api/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(cleanData),
       });
-      const result = await response.json();
-      if (response.ok && result.status === 'success') {
+      const adminResult = await resAdmin.json();
+  
+      // Send thank-you email to the user
+      const resUser = await fetch('https://shreyas-portfolio-backend.vercel.app/api/thankyou', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: cleanData.name, email: cleanData.email }),
+      });
+      const userResult = await resUser.json();
+  
+      if (resAdmin.ok && adminResult.status === 'success' && resUser.ok && userResult.status === 'success') {
         setSuccess(true);
         formRef.current.reset();
       } else {
-        throw new Error(result.error || 'Failed to send message.');
+        throw new Error('Failed to send one or both emails.');
       }
-    } catch (err) {
-      setError(err.message || 'Failed to send message. Please try again.');
+    } catch (error) {
+      setError(error.message || 'Failed to send message. Please try again.');
     } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <section id="contact" className="min-h-screen py-20 dark:bg-primary bg-white relative">
