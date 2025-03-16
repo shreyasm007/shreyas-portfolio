@@ -25,7 +25,7 @@ function App() {
     window.addEventListener('load', handleLoad);
 
     // Fallback: remove spinner after 10 seconds if load event is not fired
-    const timeoutId = setTimeout(() => setLoading(false), 10000);
+    const timeoutId = setTimeout(() => setLoading(false), 2000);
 
     // Clean up event listener and timeout on unmount
     return () => {
