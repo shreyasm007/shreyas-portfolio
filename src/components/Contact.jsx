@@ -1,8 +1,6 @@
 //Contact.jsx
-import React from 'react'; 
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import DOMPurify from 'dompurify';
 
 const Contact = () => {
@@ -35,17 +33,21 @@ const Contact = () => {
         message: DOMPurify.sanitize(formData.message)
       };
 
-      await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      );
-      
-      setSuccess(true);
-      formRef.current.reset();
-    } catch (error) {
-      setError(error.message || 'Failed to send message. Please try again.');
+      // Call your backend endpoint instead of using emailjs
+      const response = await fetch('http://localhost:3001/api/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(cleanData),
+      });
+      const result = await response.json();
+      if (response.ok && result.status === 'success') {
+        setSuccess(true);
+        formRef.current.reset();
+      } else {
+        throw new Error(result.error || 'Failed to send message.');
+      }
+    } catch (err) {
+      setError(err.message || 'Failed to send message. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -175,7 +177,7 @@ const Contact = () => {
                   className="w-full px-4 py-2 rounded-lg dark:bg-gray-800 bg-white border dark:border-gray-700 border-gray-300 dark:text-white text-gray-900 focus:ring-2 focus:ring-purple-600"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="email" className="block mb-2 text-sm font-medium dark:text-white text-gray-700">
                   Your Email
