@@ -128,6 +128,14 @@ const Contact = () => {
                   LinkedIn
                 </a>
                 <a
+                  href="https://github.com/shreyasm007"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
+                  GitHub
+                </a>
+                <a
                   href="https://leetcode.com/shreyasm_007"
                   target="_blank"
                   rel="noopener noreferrer"

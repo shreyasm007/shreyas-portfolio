@@ -65,7 +65,15 @@ const Hero = () => {
               rel="noopener noreferrer"
               className="btn-primary"
             >
-              See my resume
+              Resume
+            </a>
+            <a
+              href="https://github.com/shreyasm007"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              GitHub
             </a>
             <a
               href="https://leetcode.com/shreyasm_007"

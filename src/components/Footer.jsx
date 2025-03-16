@@ -14,6 +14,11 @@ const Footer = () => {
       icon: <FaLinkedin className="w-6 h-6" />
     },
     {
+      name: 'GitHub',
+      url: 'https://github.com/shreyasm007',
+      icon: <FaGithub className="w-6 h-6" />
+    },
+    {
       name: 'LeetCode',
       url: 'https://leetcode.com/shreyasm_007',
       icon: <SiLeetcode className="w-6 h-6" />
@@ -28,6 +33,7 @@ const Footer = () => {
       url: 'https://www.hackerrank.com/profile/shreyasm007',
       icon: <FaHackerrank className="w-6 h-6" />
     }
+    
   ];
 
   return (
