@@ -33,6 +33,7 @@ const About = () => {
                 <p className="text-gray-600 dark:text-gray-300">B.Tech in Computer Science and Engineering</p>
                 <p className="text-gray-500">Nov 2020 - May 2024</p>
                 <p className="text-purple-600 dark:text-purple-400">CGPA: 8.34</p>
+                <a href="https://drive.google.com/file/d/1BR2cK4AIbbxmFpk9j2Qm_u_P9GfrBNoE/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">View Degree</a>
               </div>
               
               <div className="dark:bg-tertiary bg-gray-100 p-6 rounded-lg">
@@ -42,6 +43,7 @@ const About = () => {
                 <p className="text-gray-600 dark:text-gray-300">Higher Secondary Certificate (HSC) in Science</p>
                 <p className="text-gray-500">Mar 2018 - Jun 2020</p>
                 <p className="text-purple-600 dark:text-purple-400">Grade: 95.23%</p>
+                <a href="https://drive.google.com/file/d/1aZaGh6GzZTHhBmpxyW6Dn8LeImSrjIq-/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">View Grade Card</a>
               </div>
               <div className="dark:bg-tertiary bg-gray-100 p-6 rounded-lg">
                 <h4 className="text-xl font-semibold dark:text-white text-gray-800">
@@ -50,6 +52,7 @@ const About = () => {
                 <p className="text-gray-600 dark:text-gray-300">Secondary School Certificate</p>
                 <p className="text-gray-500">Jun 2013 - May 2018</p>
                 <p className="text-purple-600 dark:text-purple-400">Grade: 96.60%</p>
+                <a href="https://drive.google.com/file/d/1aSoIqCCqMKX0wMnGpAjx3G2vlkGV1UEb/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">View Grade Card</a>
               </div>
             </div>
             {/* NEW: Personal Story & Extracurricular */}

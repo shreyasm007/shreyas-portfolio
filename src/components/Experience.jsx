@@ -27,7 +27,8 @@ const Experience = () => {
         "Developed frontend components with Angular and contributed to backend development using C# and XAML.",
         "Attended cybersecurity webinars, enhancing knowledge of secure coding practices",
         "Worked closely with senior developers, gaining valuable mentorship"
-      ]
+      ],
+      certificate: "https://drive.google.com/file/d/13o5JrYRNUu7wdFjTHWmsipjB1tQ6WusE/view?usp=sharing" // Replace with your actual Google Drive link
     },
     {
       title: "GIM & SRO Coordinator",
@@ -40,7 +41,7 @@ const Experience = () => {
         "Developed leadership, communication, and organizational skills through hands-on event management."
       ]
     }
-    
+
   ];
 
   const cardVariants = {
@@ -110,7 +111,7 @@ const Experience = () => {
                     </p>
                     <ul className="space-y-2">
                       {exp.points.map((point, i) => (
-                        <li 
+                        <li
                           key={i}
                           className="flex items-start gap-2 dark:text-gray-300 text-gray-700"
                         >
@@ -119,6 +120,16 @@ const Experience = () => {
                         </li>
                       ))}
                     </ul>
+                    {exp.certificate && (
+                      <a
+                        href={exp.certificate}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 underline mt-2 block"
+                      >
+                        View Internship Certificate
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
