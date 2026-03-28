@@ -49,7 +49,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
-            className="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4"
+            className="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4 w-full max-w-full px-2"
           >
             <a
               href="https://www.linkedin.com/in/shreyas-mohite-750a64227/"

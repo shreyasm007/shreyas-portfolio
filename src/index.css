@@ -16,6 +16,12 @@
   scroll-behavior: smooth;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
 @layer components {
   .btn-primary {
     @apply px-4 py-2 sm:px-6 sm:py-3 bg-purple-600 text-white rounded-full font-semibold

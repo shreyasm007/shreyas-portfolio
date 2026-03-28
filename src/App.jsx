@@ -45,7 +45,7 @@ function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
-        <div className="relative z-0 bg-primary">
+        <div className="relative z-0 bg-primary overflow-x-hidden">
           <ThemeToggle />
           <Chatbot />
           <ParticleBackground />
