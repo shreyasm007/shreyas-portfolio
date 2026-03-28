@@ -12,13 +12,13 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="flex flex-col items-center justify-center text-center"
+          className="flex flex-col items-center justify-center text-center px-4"
         >
-          <h1 className="text-white font-black text-6xl sm:text-8xl">
+          <h1 className="text-white font-black text-4xl sm:text-6xl lg:text-8xl leading-tight">
             Hi, I'm <span className="text-purple-500">Shreyas</span>
           </h1>
           
-          <div className="mt-4 text-2xl sm:text-3xl text-gray-300">
+          <div className="mt-4 text-xl sm:text-2xl lg:text-3xl text-gray-300 min-h-[1.5em]">
             <TypeAnimation
               sequence={[
                 'Generative AI Engineer',
@@ -38,7 +38,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
-            className="mt-6 text-gray-400 text-lg max-w-2xl"
+            className="mt-6 text-gray-400 text-base sm:text-lg max-w-2xl"
           >
             Passionate about creating innovative solutions using Generative AI, 
             Full Stack Development, and emerging technologies. Currently working 
@@ -49,7 +49,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
-            className="mt-8 flex gap-4"
+            className="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4"
           >
             <a
               href="https://www.linkedin.com/in/shreyas-mohite-750a64227/"
