@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import { FiMessageSquare, FiX, FiSend } from "react-icons/fi";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import "./Chatbot.css";
 
-// myJarvis backend URL
-const JARVIS_API_URL = import.meta.env.VITE_JARVIS_API_URL || "http://localhost:8000";
+// API URLs
+const LOCAL_API_URL = "http://localhost:8000";
+const PROD_API_URL = "https://shreyasm007-myjarvis.hf.space";
 
-const WELCOME_MESSAGE = "Hello! I'm here to help you learn more about this portfolio. Feel free to ask me about skills, projects, experience, or anything else you'd like to know!";
+const WELCOME_MESSAGE = "Hello! I'm here to help you learn more about this portfolio. Feel free to ask me about:\n\n- **Technical Skills**\n- **Projects & Achievements**\n- **Professional Experience**\n- Any other questions you have!";
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +18,12 @@ export default function Chatbot() {
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [conversationId, setConversationId] = useState(null);
+  
+  // Only show toggle in Dev Mode
+  const isDev = import.meta.env.DEV;
+  const [isLocal, setIsLocal] = useState(isDev); // Default to local in dev, prod in production
+  
+  const currentApiUrl = isLocal ? LOCAL_API_URL : PROD_API_URL;
   
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
@@ -45,7 +54,7 @@ export default function Chatbot() {
     setMessages(updatedMessages);
 
     try {
-      const response = await fetch(`${JARVIS_API_URL}/api/v1/chat/stream`, {
+      const response = await fetch(`${currentApiUrl}/api/v1/chat/stream`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -130,7 +139,19 @@ export default function Chatbot() {
       {/* Chat Window */}
       <div className={`rag-chat-window ${isOpen ? "open" : "closed"}`}>
         <div className="rag-chat-header">
-          <h3>Chat with Shreyas</h3>
+          <div className="rag-chat-header-info">
+            <h3>Chat with Shreyas</h3>
+            {isDev && (
+              <button 
+                className={`api-toggle ${isLocal ? 'local' : 'prod'}`}
+                onClick={() => setIsLocal(!isLocal)}
+                title={`Switch to ${isLocal ? 'Production' : 'Local'} API`}
+                disabled={isLoading}
+              >
+                {isLocal ? '⚡ Local' : '🌐 Prod'}
+              </button>
+            )}
+          </div>
           <button className="rag-chat-close" onClick={toggleChat} aria-label="Close Chat">
             <FiX />
           </button>
@@ -139,7 +160,13 @@ export default function Chatbot() {
         <div className="rag-chat-messages">
           {messages.map((msg, index) => (
             <div key={index} className={`rag-chat-message ${msg.role}`}>
-              {msg.content}
+              {msg.role === "assistant" ? (
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {msg.content}
+                </ReactMarkdown>
+              ) : (
+                msg.content
+              )}
             </div>
           ))}
           {isLoading && messages[messages.length - 1].role === "user" && (
