@@ -1,5 +1,5 @@
-// src/components/ThemeToggle.jsx
-import { useTheme } from '../context/ThemeContext';
+// src/components/ThemeToggle/ThemeToggle.jsx
+import { useTheme } from '../../context/ThemeContext';
 import { motion } from 'framer-motion';
 
 const ThemeToggle = () => {
@@ -13,7 +13,6 @@ const ThemeToggle = () => {
       className="fixed right-4 top-20 z-50 p-2 rounded-full bg-gray-800 dark:bg-gray-200"
     >
       {darkMode ? (
-        // When dark mode is ON, show sun icon so that clicking switches to light mode
         <svg
           className="w-6 h-6 text-yellow-500"
           fill="none"
@@ -28,7 +27,6 @@ const ThemeToggle = () => {
           />
         </svg>
       ) : (
-        // When dark mode is OFF, show moon icon. Using a lighter color for better contrast.
         <svg
           className="w-6 h-6 text-gray-100"
           fill="none"

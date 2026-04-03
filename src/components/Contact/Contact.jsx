@@ -1,7 +1,8 @@
-//Contact.jsx
+// src/components/Contact/Contact.jsx
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import DOMPurify from 'dompurify';
+import { personalInfo } from '../../constants/data';
 
 const Contact = () => {
   const formRef = useRef();
@@ -103,16 +104,16 @@ const Contact = () => {
                   <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <a href="mailto:shreyasmohite001@gmail.com" className="dark:text-gray-300 text-gray-600 hover:text-purple-600 transition-colors">
-                    shreyasmohite001@gmail.com
+                  <a href={`mailto:${personalInfo.email}`} className="dark:text-gray-300 text-gray-600 hover:text-purple-600 transition-colors">
+                    {personalInfo.email}
                   </a>
                 </div>
                 <div className="flex items-center space-x-4">
                   <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  <a href="tel:+919172129218" className="dark:text-gray-300 text-gray-600 hover:text-purple-600 transition-colors">
-                    +91 9172129218
+                  <a href={`tel:${personalInfo.phone.replace(/\s/g, '')}`} className="dark:text-gray-300 text-gray-600 hover:text-purple-600 transition-colors">
+                    {personalInfo.phone}
                   </a>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -121,7 +122,7 @@ const Contact = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   <span className="dark:text-gray-300 text-gray-600">
-                    Pune, Maharashtra, India
+                    {personalInfo.location}
                   </span>
                 </div>
               </div>
@@ -133,7 +134,7 @@ const Contact = () => {
               </h3>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://www.linkedin.com/in/shreyas-mohite-750a64227/"
+                  href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
@@ -141,7 +142,7 @@ const Contact = () => {
                   LinkedIn
                 </a>
                 <a
-                  href="https://github.com/shreyasm007"
+                  href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
@@ -149,7 +150,7 @@ const Contact = () => {
                   GitHub
                 </a>
                 <a
-                  href="https://leetcode.com/shreyasm_007"
+                  href={personalInfo.leetcode}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
@@ -157,7 +158,7 @@ const Contact = () => {
                   LeetCode
                 </a>
                 <a
-                  href="https://auth.geeksforgeeks.org/user/shreyasmoe7um"
+                  href={personalInfo.gfg}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"

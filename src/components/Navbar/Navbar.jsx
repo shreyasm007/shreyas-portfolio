@@ -1,19 +1,11 @@
-//Navbar.jsx
-import React from 'react'; 
-import { useState } from 'react';
+// src/components/Navbar/Navbar.jsx
+import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
+import { navLinks, personalInfo } from '../../constants/data';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { name: 'About', to: 'about' },
-    { name: 'Experience', to: 'experience' },
-    { name: 'Skills', to: 'skills' },
-    { name: 'Projects', to: 'projects' },
-    { name: 'Contact', to: 'contact' },
-  ];
 
   return (
     <motion.nav 
@@ -25,7 +17,7 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
             <Link to="hero" smooth={true} className="cursor-pointer">
-              <h1 className="text-white text-2xl font-bold">Shreyas Mohite</h1>
+              <h1 className="text-white text-2xl font-bold">{personalInfo.name}</h1>
             </Link>
           </div>
           

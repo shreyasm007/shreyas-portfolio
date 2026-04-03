@@ -1,49 +1,8 @@
-// src/components/Experience.jsx
+// src/components/Experience/Experience.jsx
 import { motion } from 'framer-motion';
+import { experiences } from '../../constants/data';
 
 const Experience = () => {
-  const experiences = [
-    {
-      title: "Associate Engineer - Generative AI",
-      company: "NCS Group",
-      duration: "Aug 2024 - Present",
-      points: [
-        "Developing an IT Assist chatbot using Microsoft Copilot Studio and Power Automate, integrated with ServiceNow API.",
-        "Implementing prompt engineering, retrieval-augmented generation (RAG), and vector databases to enhance response accuracy.",
-        "Using Hugging Face models and deploying AI-driven solutions with Ollama.",
-        "Optimize NLP workflows (tokenization, embeddings, stemming, and lemmatization).",
-        "Focused on Generative AI, data scraping, and leveraging Large Language Models (LLMs)",
-        "Actively contributed to chatbot development and automation tools",
-        "Gained exposure to end-to-end project cycles"
-      ]
-    },
-    {
-      title: "Software Developer Intern",
-      company: "Emerson Innovation Center, Pune",
-      duration: "Jan 2024 - Aug 2024",
-      points: [
-        "Engineered a full-stack License Monitoring Tool using the MERN stack for real-time tracking of software licenses.",
-        "Enhanced data accuracy, reducing manual oversight by 30%, and gained valuable mentorship from senior developers.",
-        "Developed frontend components with Angular and contributed to backend development using C# and XAML.",
-        "Attended cybersecurity webinars, enhancing knowledge of secure coding practices",
-        "Worked closely with senior developers, gaining valuable mentorship"
-      ],
-      certificate: "https://drive.google.com/file/d/13o5JrYRNUu7wdFjTHWmsipjB1tQ6WusE/view?usp=sharing" // Replace with your actual Google Drive link
-    },
-    {
-      title: "GIM & SRO Coordinator",
-      company: "Students Organization For Technical Activity (SOFTA)",
-      duration: "Jul 2021 - Apr 2022",
-      points: [
-        "Managed events such as GIM 2022 for first-year students, ensuring smooth execution and high participation.",
-        "Coordinated publicity and outreach initiatives to promote club services and events.",
-        "Led a team to organize both technical and extracurricular activities, fostering a strong community spirit.",
-        "Developed leadership, communication, and organizational skills through hands-on event management."
-      ]
-    }
-
-  ];
-
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: (i) => ({

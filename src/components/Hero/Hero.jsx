@@ -1,6 +1,7 @@
-//Hero.jsx
+// src/components/Hero/Hero.jsx
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
+import { personalInfo } from '../../constants/data';
 
 const Hero = () => {
   return (
@@ -15,17 +16,17 @@ const Hero = () => {
           className="flex flex-col items-center justify-center text-center px-4"
         >
           <h1 className="text-white font-black text-4xl sm:text-6xl lg:text-8xl leading-tight">
-            Hi, I'm <span className="text-purple-500">Shreyas</span>
+            Hi, I'm <span className="text-purple-500">{personalInfo.title}</span>
           </h1>
           
           <div className="mt-4 text-xl sm:text-2xl lg:text-3xl text-gray-300 min-h-[1.5em]">
             <TypeAnimation
               sequence={[
-                'Generative AI Engineer',
+                personalInfo.roles[0],
                 2000,
-                'Full Stack Developer',
+                personalInfo.roles[1],
                 2000,
-                'Software Engineer',
+                personalInfo.roles[2],
                 2000,
               ]}
               wrapper="span"
@@ -40,9 +41,7 @@ const Hero = () => {
             transition={{ delay: 0.5, duration: 1 }}
             className="mt-6 text-gray-400 text-base sm:text-lg max-w-2xl"
           >
-            Passionate about creating innovative solutions using Generative AI, 
-            Full Stack Development, and emerging technologies. Currently working 
-            at NCS Group as an Associate Engineer.
+            {personalInfo.description}
           </motion.p>
 
           <motion.div
@@ -52,7 +51,7 @@ const Hero = () => {
             className="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4 w-full max-w-full px-2"
           >
             <a
-              href="https://www.linkedin.com/in/shreyas-mohite-750a64227/"
+              href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
@@ -60,7 +59,7 @@ const Hero = () => {
               LinkedIn
             </a>
             <a
-              href="https://drive.google.com/file/d/1QxLBL_u6-xmQHRGVHBq06ZN_C5QAgA7j/view?usp=sharing"
+              href={personalInfo.resume}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
@@ -68,7 +67,7 @@ const Hero = () => {
               Resume
             </a>
             <a
-              href="https://github.com/shreyasm007"
+              href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
@@ -76,7 +75,7 @@ const Hero = () => {
               GitHub
             </a>
             <a
-              href="https://leetcode.com/shreyasm_007"
+              href={personalInfo.leetcode}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

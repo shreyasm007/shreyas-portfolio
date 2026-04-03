@@ -1,6 +1,5 @@
-//ParticleBackground.jsx
-import React from 'react'; 
-import { useCallback } from "react";
+// src/components/ParticleBackground/ParticleBackground.jsx
+import React, { useCallback } from 'react'; 
 import { Particles } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 

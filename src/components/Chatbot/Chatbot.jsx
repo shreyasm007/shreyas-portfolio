@@ -2,18 +2,13 @@ import { useState, useEffect, useRef } from "react";
 import { FiMessageSquare, FiX, FiSend, FiCpu } from "react-icons/fi";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { chatbotConfig } from "../../constants/data";
 import "./Chatbot.css";
-
-// API URLs
-const LOCAL_API_URL = "http://localhost:8000";
-const PROD_API_URL = "https://shreyasm007-myjarvis.hf.space";
-
-const WELCOME_MESSAGE = "Hello! I'm here to help you learn more about this portfolio. Feel free to ask me about:\n\n- **Technical Skills**\n- **Projects & Achievements**\n- **Professional Experience**\n- Any other questions you have!";
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: "assistant", content: WELCOME_MESSAGE }
+    { role: "assistant", content: chatbotConfig.welcomeMessage }
   ]);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -21,10 +16,10 @@ export default function Chatbot() {
   
   // Only show toggle in Dev Mode
   const isDev = import.meta.env.DEV;
-  const [isLocal, setIsLocal] = useState(isDev); // Default to local in dev, prod in production
+  const [isLocal, setIsLocal] = useState(isDev); 
   const [showTooltip, setShowTooltip] = useState(false);
   
-  const currentApiUrl = isLocal ? LOCAL_API_URL : PROD_API_URL;
+  const currentApiUrl = isLocal ? chatbotConfig.localApiUrl : chatbotConfig.prodApiUrl;
   
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
@@ -35,7 +30,7 @@ export default function Chatbot() {
     if (!hasVisited) {
       const timer = setTimeout(() => {
         setShowTooltip(true);
-      }, 3000); // Show after 3 seconds
+      }, 3000); 
       return () => clearTimeout(timer);
     }
   }, []);
@@ -67,7 +62,6 @@ export default function Chatbot() {
     setInputValue("");
     setIsLoading(true);
 
-    // Add user message to UI
     const updatedMessages = [...messages, { role: "user", content: userMessage }];
     setMessages(updatedMessages);
 
@@ -83,12 +77,10 @@ export default function Chatbot() {
 
       if (!response.ok) throw new Error("Failed to connect to assistant");
 
-      // Set up streaming
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
       let assistantContent = "";
       
-      // Add empty assistant message that we'll fill
       setMessages(prev => [...prev, { role: "assistant", content: "" }]);
 
       while (true) {
@@ -113,7 +105,6 @@ export default function Chatbot() {
                 setConversationId(data.conversation_id);
               }
 
-              // Update the last message in the array
               setMessages(prev => {
                 const newMessages = [...prev];
                 newMessages[newMessages.length - 1].content = assistantContent;
@@ -148,7 +139,7 @@ export default function Chatbot() {
       {/* Onboarding Tooltip */}
       {showTooltip && !isOpen && (
         <div className="chat-onboarding-tooltip">
-          <FiCpu className="tooltip-icon" /> Hey! Talk to my AI assistant.
+          <FiCpu className="tooltip-icon" /> {chatbotConfig.onboardingTooltip}
         </div>
       )}
 
