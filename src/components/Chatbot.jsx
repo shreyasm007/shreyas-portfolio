@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { FiMessageSquare, FiX, FiSend } from "react-icons/fi";
+import { FiMessageSquare, FiX, FiSend, FiCpu } from "react-icons/fi";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import "./Chatbot.css";
@@ -22,11 +22,23 @@ export default function Chatbot() {
   // Only show toggle in Dev Mode
   const isDev = import.meta.env.DEV;
   const [isLocal, setIsLocal] = useState(isDev); // Default to local in dev, prod in production
+  const [showTooltip, setShowTooltip] = useState(false);
   
   const currentApiUrl = isLocal ? LOCAL_API_URL : PROD_API_URL;
   
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+
+  // Check for first-time visit
+  useEffect(() => {
+    const hasVisited = localStorage.getItem("hasVisitedChat");
+    if (!hasVisited) {
+      const timer = setTimeout(() => {
+        setShowTooltip(true);
+      }, 3000); // Show after 3 seconds
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   // Auto-scroll to bottom when messages change
   const scrollToBottom = () => {
@@ -40,7 +52,13 @@ export default function Chatbot() {
     }
   }, [isOpen, messages]);
 
-  const toggleChat = () => setIsOpen(!isOpen);
+  const toggleChat = () => {
+    setIsOpen(!isOpen);
+    if (!isOpen && showTooltip) {
+      setShowTooltip(false);
+      localStorage.setItem("hasVisitedChat", "true");
+    }
+  };
 
   const handleSend = async () => {
     if (!inputValue.trim() || isLoading) return;
@@ -127,6 +145,13 @@ export default function Chatbot() {
 
   return (
     <div className="rag-chat-widget-container">
+      {/* Onboarding Tooltip */}
+      {showTooltip && !isOpen && (
+        <div className="chat-onboarding-tooltip">
+          <FiCpu className="tooltip-icon" /> Hey! Talk to my AI assistant.
+        </div>
+      )}
+
       {/* Chat Bubble */}
       <button 
         className="rag-chat-bubble" 
