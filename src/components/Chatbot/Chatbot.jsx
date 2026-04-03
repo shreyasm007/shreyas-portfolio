@@ -2,10 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { FiMessageSquare, FiX, FiSend, FiCpu } from "react-icons/fi";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { useTheme } from "../../context/ThemeContext";
 import { chatbotConfig } from "../../constants/data";
 import "./Chatbot.css";
 
 export default function Chatbot() {
+  const { darkMode } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     { role: "assistant", content: chatbotConfig.welcomeMessage }
@@ -153,7 +155,7 @@ export default function Chatbot() {
       </button>
 
       {/* Chat Window */}
-      <div className={`rag-chat-window ${isOpen ? "open" : "closed"}`}>
+      <div className={`rag-chat-window ${isOpen ? "open" : "closed"} ${darkMode ? "dark" : "light"}`}>
         <div className="rag-chat-header">
           <div className="rag-chat-header-info">
             <h3>Chat with Shreyas</h3>
